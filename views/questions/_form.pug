@@ -1,9 +1,117 @@
 .form-group
-  label(for="title") Title
-  input.form-control(type="text", name="title", placeholder="What's your question?", value=question.title)
+  label(for="title") EVENT TITLE
+  input.form-control(type="text", name="title", placeholder="Give it a short distinct name", value=question.title)
+  .invalid-feedback
+    Please provide a valid title.
 .form-group
-  label(for="question") Question
-  textarea.form-control(name="content", rows="5")= question.content
+  label(for="location") LOCATION
+  input.form-control(type="text", name="location", placeholder="Search for a venue or address.", value=question.location)
+  .invalid-feedback
+    Please provide a valid title.
+.form-row
+  .form-group.col-md-3
+    label(for="starts") STARTS
+    input.form-control(type="date", name="starts-date", value=question.date)
+    .invalid-feedback
+      Please provide a valid title.
+  .form-group.col-md-3
+    label(for="starts") ~
+    input.form-control(type="time", name="starts-time", value=question.time)
+    .invalid-feedback
+      Please provide a valid title.
+  .form-group.col-md-3
+    label(for="ends") ENDS
+    input.form-control(type="date", name="ends-date",value=question.date)
+  .form-group.col-md-3
+    label(for="ends") ~
+    input.form-control(type="time", name="ends-time", value=question.time)
+.form-group(method="post", enctype="multipart/form-data")
+  label(for="image") EVENT IMAGE
+  input.form-control(type="file" multiple, name="image", value=question.image)  
+.form-row
+  .form-group.col-md-3
+    label(for="participants") MAXIMUM PARTICIPANTS
+    input.form-control(type="text", name="participants", value=question.max)
 .form-group
-  label(for="tags") Tags
-  input.form-control(type="text", name="tags", placeholder="tags separated by spaces", value=question.tags ? question.tags.join(" ") : "")
+  label(for="description") EVENT DISCRIPTION
+  textarea.form-control(type="content", rows="6", name="event-desc")= question.edesc
+.form-group
+  label(for="organizer") ORGANIZER NAME
+  input.form-control(type="text", name="organizer-name", placeholder="Who's organizing this event?", value=question.organizer)
+.form-group
+  label(for="organizer") ORGANIZER DISCRIPTION
+  textarea.form-control(type="content", rows="4", name="organizer-desc")= question.odesc
+h1.main-title Create Tickets
+h5 What type of ticket would you like to start with?
+p
+.form-row
+  .form-group.col-md-4
+    input.form-control(type="button", id="free", name="cost", value="FREE TICKET")
+  .form-group.col-md-4
+    input.form-control(type="button", id="paid", name="cost", value="PAID TICKET")
+.hide
+  .form-group
+    p
+    label(for="price") Ticket Price : 
+    input.form-control(type="text", name="tags", placeholder="$ 0.00", value=question.tags)
+   
+h1.main-title Additional Settings
+.form-group
+  label(for="type") EVENT TYPE
+  select.form-control(name="type")
+    option(value selected="selected") Select the type of event
+    option(value="1") Appearance or Signing
+    option(value="2") Attraction
+    option(value="3") Camp, Trip, or Retreat
+    option(value="4") Class, Training, or Workshop
+    option(value="5") Concert or Performance
+    option(value="6") Conference
+    option(value="7") Convention
+    option(value="8") Dinner or Gala
+    option(value="9") Festival or Fair
+    option(value="10") Game or Competition
+    option(value="11") Meeting or Networking Event
+    option(value="12") Other
+    option(value="13") Party or Social Gathering
+    option(value="14") Race or Endurance Event
+    option(value="15") Rally
+    option(value="16") Screening
+    option(value="17") Seminar or Talk
+    option(value="18") Tour
+    option(value="19") Tournament
+    option(value="20") Tradeshow, Consumer Show or Expo
+.form-group
+  label(for="topic")  EVENT TOPIC
+  select.form-control(name="topic")
+    option(value selected="selected") Select a topic
+    option(value="21") Auto, Boat & Air
+    option(value="22") Business & Professional
+    option(value="23") Charity & Causes
+    option(value="24") Community & Culture
+    option(value="25") Family & Education
+    option(value="26") Fashion & Beauty
+    option(value="27") Film, Media & Entertainment
+    option(value="28") Food & Drink
+    option(value="29") Government & Politics
+    option(value="30") Health & Wellness
+    option(value="31") Hobbies & Special Interest
+    option(value="32") Home & Lifestyle
+    option(value="33") Music
+    option(value="34") Other
+    option(value="35") Performing & Visual Arts
+    option(value="36") Religion & Spirituality
+    option(value="37") School Activities
+    option(value="38") Science & Technology
+    option(value="39") Seasonal & Holiday
+    option(value="40") Sports & Fitness
+    option(value="41") Travel & Outdoor
+
+script.
+  $(function() {
+    $('#paid').click(function() {
+      $('.hide').addClass("active");
+    });
+    $('#free').click(function() {
+      $('.hide').removeClass('active');
+    });
+  });

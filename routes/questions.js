@@ -63,7 +63,8 @@ router.put('/:id', catchErrors(async (req, res, next) => {
   }
   question.title = req.body.title;
   question.content = req.body.content;
-  question.tags = req.body.tags.split(" ").map(e => e.trim());
+  question.tags = req.body.tags;
+  question.location = req.body.location;
 
   await question.save();
   req.flash('success', 'Successfully updated');
@@ -82,7 +83,8 @@ router.post('/', needAuth, catchErrors(async (req, res, next) => {
     title: req.body.title,
     author: user._id,
     content: req.body.content,
-    tags: req.body.tags.split(" ").map(e => e.trim()),
+    tags: req.body.tags,
+    location: req.body.location,
   });
   await question.save();
   req.flash('success', 'Successfully posted');
@@ -101,7 +103,8 @@ router.post('/:id/answers', needAuth, catchErrors(async (req, res, next) => {
   var answer = new Answer({
     author: user._id,
     question: question._id,
-    content: req.body.content
+    content: req.body.content,
+    
   });
   await answer.save();
   question.numAnswers++;

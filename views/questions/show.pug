@@ -17,14 +17,14 @@ block content
       
     if question.numAnswers > 0
       hr
-      h3 #{question.numAnswers} Answer(s)
+      h3 #{question.numAnswers} Question(s)
       .answers.show
         each answer in answers
           include _answer
 
     form(action=`/questions/${question.id}/answers`, method='POST')
       .form-group
-        label(for='answer') Your Answer
+        label(for='answer') Your Question
         textarea.form-control(name="content", rows="5")
-      button.btn.btn-primary(type="submit") Post Your Answer
+      button.btn.btn-primary(type="submit") Post Your Question
 
