@@ -8,9 +8,6 @@ block content
     form.form-inline.search-input-group(action='/questions', method='GET')
       i.fa.fa-search
       input.form-control.mr-sm-2(type='text', name='term', placeholder='Search', aria-label='Search', value=term)
-
-    hr
-    a.btn.btn-primary(href='/questions/new') Create Event
     
     h1.main-title 
       | Events
@@ -26,6 +23,9 @@ block content
             a.title(href=`/questions/${question.id}`)= question.title
             include _question
 
+    
       +paginate(questions, '/questions', query)
-
+    
+    hr
+    a.btn.btn-primary(href='/questions/new') Create Event
     
