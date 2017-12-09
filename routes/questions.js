@@ -65,9 +65,6 @@ router.put('/:id', catchErrors(async (req, res, next) => {
   question.content = req.body.content;
   question.tags = req.body.tags;
   question.location = req.body.location;
-  question.date = req.body.date;
-  question.time = req.body.time;
-  question.edesc = req.body.edesc;
 
   await question.save();
   req.flash('success', 'Successfully updated');
@@ -88,9 +85,6 @@ router.post('/', needAuth, catchErrors(async (req, res, next) => {
     content: req.body.content,
     tags: req.body.tags,
     location: req.body.location,
-    date: req.body.date,
-    time: req.body.time,
-    edesc: req.body.edesc
   });
   await question.save();
   req.flash('success', 'Successfully posted');

@@ -11,9 +11,6 @@ var schema = new Schema({
   numReads: {type: Number, default: 0},
   createdAt: {type: Date, default: Date.now},
   location: {type: String, trim: true, required: true},
-  date: {type: String, trim: true, required: true},
-  time: {type: String, trim: true, required: true},
-  edesc: {type: String, trim: true, required: true}
 
 }, {
   toJSON: { virtuals: true},
