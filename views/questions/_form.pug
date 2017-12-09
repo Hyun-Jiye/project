@@ -1,24 +1,16 @@
 .form-group
   label(for="title") EVENT TITLE
   input.form-control(type="text", name="title", placeholder="Give it a short distinct name", value=question.title)
-  .invalid-feedback
-    Please provide a valid title.
 .form-group
   label(for="location") LOCATION
   input.form-control(type="text", name="location", placeholder="Search for a venue or address.", value=question.location)
-  .invalid-feedback
-    Please provide a valid title.
 .form-row
   .form-group.col-md-3
     label(for="starts") STARTS
     input.form-control(type="date", name="starts-date", value=question.date)
-    .invalid-feedback
-      Please provide a valid title.
   .form-group.col-md-3
     label(for="starts") ~
     input.form-control(type="time", name="starts-time", value=question.time)
-    .invalid-feedback
-      Please provide a valid title.
   .form-group.col-md-3
     label(for="ends") ENDS
     input.form-control(type="date", name="ends-date",value=question.date)
